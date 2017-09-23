@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="shortcut icon" href="/image/lcon.ico"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="\css\home.css">
+  <script type="text/javascript" src="\script\home.js"></script>
+</head>
+<body onresize="resizeMenufn()">
+<header>
+<script type="text/javascript">
+   function resizeMenufn() {
+  var outWidth=window.outerWidth;
+  if (outWidth >=600) {
+       var mn=document.getElementById("menudiv");
+       if (mn.style.display=='none') {
+        mn.style.display="block";
+       }
+   }
+}
+</script>
+<div id="maindiv">
+<div id="logodiv">
+<img  id="menupic" src="\image\menu.png">
+<a href="/"><img  id="imglogo" src="\image\logo.png"></a>
+</div>
+<div id="menudiv">
+<ul>
+	<li><a href="#">Home</a></li>
+	<li><a href="https://www.facebook.com/smartFolks.info" target="_blank">Follow</a></li>
+	<li><a href="#login" class="smooth_scroll">Login</a></li>
+	<li><a href="#contact" class="smooth_scroll">Contact</a></li>
+</ul>	
+</div>
+</div>	
+</header>
+<div style="clear: both"></div>
+<div style="position: relative;" class="top_wall">
+  <!-- <img src="\image\sscity.png" > -->
+  <div class="weltxt" style="position: absolute;top:30%;font-family: sans-serif;width: 100%;text-align: center;background: transparent; ">
+    <p style="color: #fff;margin: 0px;">Welcome To SmartFolks</p>
+    <span class="ltag">ave your say</span><span class="rtag">An easier way to h</span>
+    <p style="margin:0px;"></p>
+    <br>
+     <a href="#login" class="smooth_scroll" id="more">FIND OUT MORE</a>
+  </div>
+  
+</div>
+<div style="position: relative;margin:30px 0px">
+<div style="margin:auto;width: 100%;text-align: center;">
+    <span style="border-bottom: 2px solid red;font-weight: bold;" >WE STAND FOR</span>
+   </div>
+<div class="abt_text">
+<p>An easier way to get the problems heard. Problems ranging from small to massive comprising Electricity Cut-off, Sewage Cleaning, Lack of transportation, Unusual Activities Complaint and a lot more.</p>
+<p>SmartFolks offer you a 3 tier platform to make your life easier and better and smarter. The 3 tier includes<i> FOLKS, ADMINISTRATION, ORGANIZATION </i></p>
+<p><strong>FOLKS </strong>are you people out there facing day to day problems and having tough times throughout the day. Now get your problems heard by the concerned department or authority
+and let them know what problems we as common people face in our daily lives. The idea of SmartFolks is not to initiate any immediate action on the problems instead focuses on making concerned aware of the problems out there. Register @SmartFolks and support the problems uploaded by people of your region. You can upload your problem using create post feature. You can also follow various organization of your region or outer and get their activities known.</p>
+<p><strong>ADMINISTRATION </strong>this includes concerned authorities in the SmartFolks platform to hear the problems of the concerned regions and take them into consideration. SmartFolks will itself try to add as many concerned authorities as it can and authorities can also join themselves the platform by contacting SmartFolks. After joining the platform, an authority can view various problems of its concerned region and provide required actions or steps to curb a particular problem.</p>
+<p><strong>ORGANIZATION </strong>is an additional and interesting feature added to the platform to provide you with a number of events happening in your region. Organization includes firms, institutions, NGOs, Government bodies etc which will post their events on the platform. SmartFolks can either contact organization to come onboard to the platform or organizations
+can contact SmartFolks directly.</p>
+</div>
+<div style="margin:auto;width: 100%;text-align: center;">
+    <span style="border-bottom: 2px solid red;font-weight: bold;">EXPLORE MORE</span>
+   </div>
+   </div>
+<div style="clear: both;"></div>
+<div id='login' style="box-sizing: border-box;margin: auto;">
+<div class="main_div">
+<div class="container-people">
+ <div class="overlay-people">
+      <div class="logreg-btn">
+      <button class="log-btn" onclick="location.href='/login/folks'">Login</button>
+      <button class="reg-btn" onclick="location.href='/register/folks'" >Register</button>
+      </div>
+  </div>
+  <span class="type_text">Folks</span>
+</div>
+</div>
+<div class="main_div">
+<div class="container-admin">
+     <div class="overlay-admin">
+      <div>
+      <button class="admin-login-btn" onclick="location.href='/login/admin'">Login</button>
+      </div>
+  </div>
+
+  <span class="type_text">Adminstration</span>
+</div>
+</div>
+<div class="main_div" >
+<div class="container-organizatn">
+  <div class="overlay-organizatn">
+      <div class="logreg-btn">
+      <button class="log-btn"onclick="location.href='/login/org'">Login</button>
+      <button class="reg-btn" onclick="location.href='/register/org'">Register</button>
+      </div>
+  </div>
+  <span class="type_text">Organization</span>
+</div>
+</div>
+</div>
+<div style="clear: both;"></div>
+<div class="count_mainDiv" style="position: relative;width: 100%;background: #ccc;height:200px; margin-bottom: 100px;">
+    <div class="count_div" >
+       <span class="count" >120</span>
+      <h4 class="count_type" >Happy Folks</h4>
+    </div>
+    <div class="count_div">
+    <span class="count">542</span>
+      <h4 class="count_type">Problem Posted</h4>
+    </div>
+    <div class="count_div">
+      <span class="count">40</span>
+      <h4 class="count_type">Happy Organizaion</h4>
+    </div>
+</div>
+
+<div id="contact" class="bottom_wall" style="">
+<div class="bottom_1">
+  <div class="card" style="background: transparent;width: 60%;">
+  <div style="width: 100%;height: 45%;background: transparent;">
+  <img src="/image/r.jpg" style="border-radius: 50%;width:60%;">
+  </div>
+  <div class="container" >
+    <h4>Rahul Yadav</h4>
+    <span>Final Year Student</span><br>
+    <span>ABV-IIITM,Gwalior</span>
+    <div style="margin: 10px 0;">
+      <a class="social_link" href="https://www.facebook.com/rckstr87" target="_blank"><img src="/image/fb.png" style="width: 35px;height:35px;"></a> 
+      <a class="social_link" href="https://www.github.com/rahulyadaviiitm" target="_blank"><img src="/image/git.png" style="width: 35px;height: 35px;"></a>  
+      <a class="social_link" href="https://www.linkedin.com/in/rahul-yadav-19a1ba86/" target="_blank"><img src="/image/link.png" style="width: 35px;height: 35px;"></a> 
+      <button onclick="location.href='/owner'">Authority Manager</button>  
+   </div>
+  </div>
+</div>
+</div>
+<div class="bottom_2">
+   <div>
+    <p><strong style="color: #fff;font-weight: bold;">Contact</strong></p>
+    <span><img src="/image/mob.png" style="vertical-align: middle;width: 32px;height: 32px;margin-right: 10px;"></span><span style="color: #fff;">+91-7691913081</span>
+   
+<br><br>
+<span><img src="/image/email.png" style="vertical-align: middle;width: 32px;height: 32px;margin-right: 10px;"></span><span style="color: #fff;">infosmartfolks[at]gmail[dot]com</span>
+<br><br>
+<span><img src="/image/location.png"  style="vertical-align: middle;width: 35px;height: 35px;margin-right: 10px;"></span><span style="color: #fff;">Gwalior,Madhya Pradesh-474010
+    </span>
+  </div>
+  </div>
+  <div class="bottom_3">
+    <p style="color: #fff;">We would love to hear from you.</p>
+    <form id="con_form" style="color: #fff;">
+      <label>Name:</label><span style="color: #ef5350">*</span>
+      <input type="text" class="inpfld" name="qname" placeholder="Enter Name" required>
+      <label>Email:</label><span style="color:#ef5350">*</span>
+      <input type="email" class="inpfld" name="qemail" placeholder="Enter Email" required>
+      <label> Message:</label><span style="color:#ef5350">*</span>
+      <textarea style="height:80px;width: 100%;padding: 12px 20px;" name="qmsg" id="qrymsg" class="inpfld" placeholder="Message"></textarea>
+      <button>Submit</button> 
+    </form>
+  </div> 
+</div>
+<footer>
+	<p id="ftrtxt">CopyRight @SmartFolks :All Rights Reserved</p>
+</footer>
+</body>
+</html>

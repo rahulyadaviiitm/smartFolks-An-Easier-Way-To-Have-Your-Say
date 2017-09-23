@@ -1,0 +1,488 @@
+*{
+	box-sizing: border-box;
+}
+body{
+	margin-left: auto;
+	margin-right: auto;
+	padding: 0px;
+	outline: none;
+	background-color: #fff;
+	max-width: 90%;
+	z-index: 10;
+	margin-top: 0px;
+	font-family: Verdana,sans-serif;
+    font-size: 15px;
+    line-height: 1.4;
+}
+
+header{
+	background-color:#03a9f4;
+	width: 100%;
+	height: 50px;
+	box-shadow: 0px 2px 5px 0px gray;
+}
+footer{
+	margin-top:30px;
+	clear: both;
+	width: 100%;
+	background-color:#29b6f6;
+}
+#ftrtxt{
+	display: block;
+	padding: 8px;
+	text-align: center;
+}
+#menupic{
+	width: 30px;
+	height: 30px;
+	float: left;
+	display: none;
+}
+#menupic:hover{
+  cursor: pointer;
+  opacity: 0.8; 
+}
+#imglogo{
+	float: left;
+	width: 150px;
+	height: 40px;
+	margin: 5px 20px;
+}
+#imglogo:hover{
+opacity: 0.8;
+}
+#logodiv{
+       float: left;
+}
+#menudiv{
+	float: right;
+	margin-right: 30px;
+}
+
+#menudiv ul li{
+	display: inline;
+}
+#menudiv ul{
+	margin-top:8px;
+}
+#menudiv ul li a{
+	color: #fff;
+	text-decoration: none;
+	padding: 5px 8px;
+	margin: 2px;
+	 border:1px solid #03a9f4;
+     border-radius: 2px;
+}
+#menudiv ul li a:hover{
+     border:1px solid #fff;
+     border-radius: 2px;
+     opacity: 0.8;
+}
+
+
+.logreg-div{
+max-width: 1000px;
+height: auto;
+margin-left: auto;
+margin-right: auto;
+margin-top: 30px;
+}
+.container-people{
+background-image: url('/image/ff.jpg');
+width: 100%;
+height: 250px;
+background-size: cover;
+box-sizing: border-box;
+position: relative;
+}
+.container-admin{
+  background-image: url('/image/ad.jpg');
+  width: 100%;
+  height: 250px;
+  background-size: cover;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.container-organizatn {
+ background-image: url('/image/og.jpg');
+ width: 100%;height: 250px;
+ background-size: cover;
+ box-sizing: border-box;
+ position: relative;
+}
+.image {
+  display: block;
+  width: 100%;
+  height:100%;
+}
+.overlay-people {
+  position:absolute;
+  bottom: 0;
+  left: 100%;
+  right: 0;
+  background-color: rgba(0,0,0,0.5);
+  overflow: hidden;
+  width: 0;
+  height: 100%;
+  transition: .5s ease;
+}
+.overlay-admin {
+  position: absolute;
+  bottom:100%;
+  left: 0;
+  right: 0;
+  background-color: rgba(0,0,0,0.5);
+  overflow: hidden;
+  width:100%;
+  height:0;
+  transition: .5s ease;
+}
+.overlay-organizatn {
+  position:absolute;
+  bottom:0;
+  left:0;
+  right: 0;
+  background-color:rgba(0,0,0,0.5);
+  overflow: hidden;
+  width: 0;
+  height: 100%;
+  transition: .5s ease;
+}
+.container-people:hover .overlay-people {
+  width: 100%;
+  left: 0;
+}
+.container-admin:hover .overlay-admin {
+  height:100%;
+  bottom:0;
+}
+.container-organizatn:hover .overlay-organizatn {
+  width: 100%;
+  right:0;
+}
+/*.admin-login-btn{
+    background-color: #43a047;
+    color: white;
+    width: 100%;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: normal;
+}*/
+.logreg-btn{
+  width: 100%;
+  white-space: nowrap; 
+  color: white;
+  font-size: 20px;
+  position: absolute;
+  overflow: hidden;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+}
+.admin-login-btn{
+  text-align: center;
+  white-space: nowrap; 
+  color: white;
+  position: absolute;
+  overflow: hidden;
+  top: 50%;
+  left: 50%;
+  background-color: #43a047;
+  width: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+   border: none;
+  padding: 10px;
+  cursor: pointer;
+  font-size: normal;
+
+}
+
+.log-btn{   
+    background-color: #43a047;
+    color: white;
+    width: 50%;
+    border: none;
+    padding: 10px;
+    margin: 0px;
+    cursor: pointer;
+}
+.reg-btn{     
+    background-color:#ef5350;
+    color: white;
+    width: 50%;
+    padding: 10px;
+    border: none;
+    margin: 0px;
+    cursor: pointer;
+}
+
+.main_div{
+  width: 25%;
+  height: 300px;
+  float: left; 
+  margin: 3.3%;
+}
+.type_text{
+  position: absolute;
+  bottom: 0;
+  color: #fff;
+  padding: 10px;
+  background:rgba(69,80,91,0.85); 
+  width: 100%;
+  font-family: sans-serif;
+}
+input[type=email],input[type=text],input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+.social_link:hover{
+  opacity: 0.8;
+
+}
+.inpfld{
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+/* Set a style for all buttons */
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    font-weight: bold;
+}
+button:hover{
+  cursor: pointer;
+  box-shadow: 0px 10px 15px 0px rgba(0,0,0,0.5);
+  opacity: 0.8;
+}
+
+/* Extra styles for the cancel button */
+.cancelbtn {
+    width: auto;
+    padding: 10px 18px;
+    background-color: #f44336;
+}
+
+.container {
+    padding: 16px;
+}
+
+span.psw {
+    float: right;
+    padding-top: 16px;
+}
+#regCancelbtn{
+    width: 48%;
+    float: left;
+    background-color: #f44336;
+    border-left: 1px solid #fff;
+}
+#Registerbtn{
+    width: 48%;
+    float: right;
+}
+.card {
+  box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.4);
+  max-width: 300px;
+  text-align: center;
+  font-family: arial;
+  background: #fff;
+  height: auto;
+  margin:20px auto 20px auto;
+}
+
+.container {
+  padding: 5px 16px;
+  background: #fff;
+  height: 50%;
+}
+#more{
+  /*position: absolute;*/
+  bottom: 30%;
+  /*width: 100%;*/
+  /*text-align: center;*/
+  opacity: 0.0;
+  color: #fff;
+  background: transparent;
+  border:1px solid #fff;
+  font-size: 15px;
+  padding: 10px;
+  text-decoration: none;
+  font-family: sans-serif;
+  font-weight: 600;
+}
+#more.hover{
+  cursor: pointer;
+  box-shadow: 0px 5px 10px 0px #000;
+  background: #ccc;
+}
+.count{
+display: block;
+color: #ffffff;
+font-size: 52px;
+font-family: sans-serif;
+font-weight: 600;
+}
+.count_type{
+color: #ffffff;
+font-size: 20px;
+font-family: sans-serif;
+margin-top: 15px;
+}
+.count_div{
+float: left;
+width: 33.3%;
+text-align: center;
+padding: 50px;
+}
+.ltag{
+  font-size: 15px;
+  left: 0%;
+  position: absolute;
+  opacity: 0;
+  color: #fff;
+  font-family: sans-serif;
+  } 
+.rtag{
+  font-size: 15px;
+  right: 0%;
+  position: absolute;
+  opacity: 0;
+  color: #fff;
+  font-family: sans-serif;
+}
+.top_wall{
+  background-image:url('/image/top.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height:500px;
+}
+.bottom_wall{
+  width: 100%;
+  height:480px;
+  margin-top: 30px;
+  background-image:url('/image/bottom.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+.bottom_1{
+  display: inline;
+   width: 40%;
+   float: left;
+   height:100%;
+   background: rgba(0,0,0,0.3);
+   padding: 10px;
+}
+.bottom_2{
+display: inline;
+ width: 30%;
+ float: left;
+ height:100%;
+ background: rgba(0,0,0,0.3);
+ padding-top: 20px;
+}
+.bottom_3{
+  display:inline;
+  float:left;
+  height:100%;
+  width: 30%;
+  background: rgba(0,0,0,0.3);
+  padding: 20px 20px;
+}
+.abt_text{
+  clear: both;
+  position: relative;
+  max-width:100%;
+  text-align: justify;
+}
+@media screen and (max-width: 900px) and (min-width: 801px){
+  body{
+    max-width: 100%;
+  }
+
+}
+@media only screen and (max-width: 800px)
+{
+  body{
+    max-width: 100%;
+  }
+#menupic{
+	display: inline;
+	float: none;
+	margin-top: 8px;
+	margin-left: 20px;
+	margin-bottom: 8px;
+}
+#imglogo{
+	float: none;
+	display: inline;
+	max-width: 200px;
+	margin-top: 8px;
+	margin-left: 15px;
+	margin-bottom: 8px;
+}
+.main_div{
+  float: none;
+  width: 60%;
+  margin: auto;
+}
+header{
+	height: 100%;
+}	
+#logodiv,#menudiv{
+ 	float: none;
+ }
+ #menudiv{
+  display: none;
+ 	margin: 0px;
+ }
+#menudiv ul li a{
+	display: block;
+	text-align: center;
+	margin: 0px 15px;
+	padding:  5px 0px;
+}
+#menudiv ul{
+	list-style-position: inside;
+	padding: 0px;
+}
+.count{
+  font-size: 25px;
+}
+.count_type{
+  font-size: 15px;
+}
+.top_wall{
+  height: 400px;
+}
+
+.bottom_1{
+  display: none;
+}
+.bottom_2{
+width: 40%;
+}
+
+.bottom_3{
+  width: 60%;
+}
+.abt_text{
+  width: 90%;
+  margin: auto;
+}

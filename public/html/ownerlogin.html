@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Office page</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+<style type="text/css">
+	.frminp{
+		width: 90%;
+		padding: 10px;
+	}
+	.logbtn{
+		width: 95%;
+		border:none;
+		padding:10px;
+		background-color: #43a047;
+		color: #fff;
+		font-weight: bold;
+		text-align: center;
+	}
+	.logbtn:hover{
+		cursor: pointer;
+		box-shadow: 2px 5px 5px 0px rgba(0,0,0,0.4);
+
+	}
+body{
+	margin: 0px;
+	padding: 0px;
+	outline: none;
+	background-color: #e1f5fe;
+}
+#loginbtn{
+  border: none;
+  padding: 10px;
+  color: #fff;
+  font-weight: bold;
+  position: absolute;
+  right: 10%;
+  background:transparent;
+  border:1px solid #4fc3f7;
+}
+</style>
+<script type="text/javascript">
+</script>
+<body>
+<div style="width: 90%;background-color: #4fc3f7;margin: auto; ">
+  <img id="logopic" src="/image/logo.png" onclick="location.href='/'">
+  <button id="loginbtn">Panel Login</button>
+</div>
+<div id="frmdiv" style="width:30%;margin: auto;padding: 100px;">
+    <p style="margin: 15px;color: #e57373">For Website Manager only.</p>
+	<form id="frm" method="post">
+	<fieldset>
+	<legend>Please Enter your Credentials:</legend>
+    <b>UserName<b><br/><input class="frminp" type="text" name="usremail" placeholder="Type username here..." required></input><br/><br/>
+    <b>Password:<b><br/><input class="frminp" type="password" name="usrpwd" placeholder="Enter Password here.." required></input><br/><br/>
+    <button class="logbtn" type="submit"> Login</button>
+	</fieldset>
+	</form>
+</div>
+</body>
+</html>

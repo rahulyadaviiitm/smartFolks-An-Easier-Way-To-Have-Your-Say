@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Register Page</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="\css\login.css">
+  <script type="text/javascript">
+    $(document).ready(function(){
+     var url=document.URL;
+     if(url.indexOf('folks')!=-1){
+     $('#redirct_link').attr('href','/login/folks');
+     $('#tpyetxt').text('Folks Name:');
+     $('#tpyetxt').css('font-weight','bold');
+     $('#detailTypetxt').text('Please enter folks details.');
+     $("#detailTypetxt").addClass("detailType");
+     }
+     else if(url.indexOf('org')!=-1){
+        $('#redirct_link').attr('href','/login/org');
+        $('#tpyetxt').text('Organization Name:');
+        $('#tpyetxt').css('font-weight','bold');
+        $('#detailTypetxt').text('Please enter organization details.');
+        $("#detailTypetxt").addClass("detailType");
+     }
+
+     $('#regi_frm').on('submit',function(event){
+      event.preventDefault();
+      var data =new FormData(this);
+      var page_url=document.URL;
+        if(page_url.indexOf('folks')!=-1){
+          data.append('type','folks');
+        }
+         else if(page_url.indexOf('org')!=-1){
+          data.append('type','org');
+        } 
+      if(document.getElementById('psd').value!=document.getElementById('cnfPsd').value){
+      alert("Password doesn't match.");
+      }
+     else{ 
+     // console.log(JSON.stringify(data)); 
+     $('#loader').show();
+    $.ajax({
+        type:'POST',
+        url:'/register/new/user',
+        data:data,
+        cache:false,
+        contentType:false,
+        processData:false,
+        success:function(result){
+           if(result=='folks'){
+            alert('Thanks for coming on board.');
+             $('#loader').hide(1000);
+            window.location.href = "/login/folks";
+          }
+          else if(result=='org'){
+            alert('Thanks for coming on board.');
+            $('#loader').hide(1000);
+            window.location.href = "/login/org";
+          }
+          else if(result=='already'){
+            alert('Email is already registered.');
+            $('#loader').hide(1000);
+          }
+       }
+        });
+  }
+     });
+});
+
+ function showAreaName(pmeter){
+ document.getElementById("areas").innerHTML = ""; 
+ if (pmeter.length == 0) {
+  document.getElementById("areas").innerHTML = ""; 
+        return;
+    } else {
+          $.getJSON('/api/suggest/area?qdata='+pmeter,function(data){
+          if(data.length>0){
+            // console.log(JSON.stringify(data));
+          var list_code='';
+          for(var i=0;i<data.length;i++){
+            if((data[i].toLowerCase()).indexOf(pmeter.toLowerCase())!=-1)
+            list_code+='<option value='+data[i]+'>';
+          }
+         document.getElementById("areas").innerHTML = list_code; 
+        }
+         })
+        }
+}   
+</script>
+</head>
+<body>
+<div class="maindiv">
+<div class="firstdiv">
+  <div class="firstsub" >
+  <p style="text-decoration: underline;">Create a free Acconut</p>
+  <p style="font-size:25px;">And join smartfolks network in your area.</p></div>
+  <img src="/image/conn.png" style="position: absolute;bottom: 30px;width: 100%;">
+</div>
+<div id="frmdiv" >
+  <form id="regi_frm">
+  <span id="detailTypetxt" >Please enter folks details.</span>
+    <label id="tpyetxt"><b>Name:</b></label><br>
+      <input type="text" class="frminp" placeholder="Enter name" name="usrName" required><br>
+      <label><b>Area:</b></label><br>
+      <input type="text"  class="frminp" list="areas" onkeyup="showAreaName(this.value)" placeholder="Enter Area or pick from suggestion e.g-Gwalior,Jaipur etc" name="usrArea" autocomplete="on" required><br>
+      <label><b>Email:</b></label><br>
+      <input type="Email" class="frminp" placeholder="Enter email" name="usrEmail" required><br>
+
+      <label><b>Password:</b></label><br>
+      <input type="password" class="frminp" id="psd" placeholder="Enter password" name="usrPsw" required><br>
+      <label><b>Conform Password:</b></label><br>
+      <input type="password" class="frminp" id="cnfPsd" placeholder="Enter confirm password" name="usrCnfrmPsw" required><br>
+      <button class="regbtn">Register</button><br>
+     
+  </form>
+  <div id="loader"></div>
+ <span style="padding-left: 25px;font-weight: bold;">Already Registered? <a id="redirct_link" style="font-weight: bold;">Login Your account</a></span>
+  <datalist id="areas">
+  </datalist>
+  
+</div>
+</div>
+</body>
+</html>

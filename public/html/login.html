@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Login Page</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+   <link rel="stylesheet" type="text/css" href="\css\login.css">
+   <script type="text/javascript" src="\script\login.js"></script>
+</head>
+<body>
+<div class="maindiv" >
+<div class="firstdiv">  
+  <div class="firstsub" >
+  <p style=underline;">Please Enter Credentials..</p>
+  <p id="my_dash">And access different sections of your dashboard-</p>
+<ul id="my_ul">
+    <li>New feeds</li>
+    <li>Recent Events</li>
+    <li>Suggested Organization</li>
+</ul>
+  </div>
+  <img src="/image/conn.png" style="position:absolute;bottom: 10px;width: 100%;">
+</div>	
+<div id="frmdiv">
+	<form id="login_frm">
+    <label id="tpyetxt"><b>Email:</b></label><br>
+    <input class="frminp" type="text" name="usremail" placeholder="Enter email.." required></input><br/><br/>
+    <b>Password:<b><br/><input class="frminp" type="password" name="usrpwd" placeholder="Enter password.." required></input><br/><br/>
+    
+    <button class="logbtn" style="text-align: center;">Login!</button>
+	</form>
+	<span id="red_text" style="margin-top:10px;">Not Registered?<a id="redirct_link">Create an account</a></span>
+</div>
+</div>
+</body>
+</html>

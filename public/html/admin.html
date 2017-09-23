@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="\css\folks.css">
+<script type="text/javascript" src="\script\admin.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+<body onload="showMe()" onscroll="makevisibleUp()"  onresize="myresizefn()">
+<header>
+<div id="maindiv">
+<div id="logodiv">
+<img  id="menupic" src="\image\menu.png">
+<a href="/"><img  id="imglogo" src="\image\logo.png"></a>
+</div>
+<div id="menudiv">
+<ul>
+	<li><a href="/">Home</a></li>
+  <li><a href="https://www.facebook.com/smartFolks.info" target="_blank">Follow</a></li>
+  <li><a href="/logout">Logout</a></li>
+  <li><a href="/#contact">Contact</a></li>
+</ul>	
+</div>
+</div>	
+</header>
+<a class="smooth_scroll" href="#maindiv" id="up"><img src="/image/up.png" style="position: fixed;right: 10px;bottom: 0;"></a>
+<div style="clear: both"></div>
+<script type="text/javascript">
+	function showMe(){
+       $.getJSON('/api/admin/problem',function(data){
+       	showProblemTOadmin(data);
+       });
+	}
+   $('#menupic').click(function(){
+     $("#menudiv").animate({
+        height: 'toggle'
+    },'slow');
+ });
+
+$(function() {
+  $('.smooth_scroll').click(function() {
+    if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
+      var target = $(this.hash);
+      target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+      if (target.length) {
+        $('html,body').animate({
+          scrollTop: target.offset().top
+        }, 1000);
+        return false;
+      }
+    }
+  });
+});
+</script>
+<span>Respected Administration:</span><span class="adminInfo"></span><br>
+<span>Place:</span><span class="adminInfo"></span>
+<div style="clear: both;"></div>
+<p class="recentText">Problem of this Area</p>
+<div id="dynamicParent" style="width:100%;">
+</div>
+<footer>
+	<p id="ftrtxt">CopyRight @SmartFolks :All Rights Reserved</p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="\css\folks.css">
+<script type="text/javascript" src="\script\owner.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+<style type="text/css">
+  #leftdiv{
+    width: 0px;
+    opacity: 0.0;
+    background-color: #cfd8dc;
+  }
+  #ownerSubmit{
+  border: none;
+  padding: 10px 20px;
+  /*margin: 10px 20px;*/
+  background-color:#4CAF50;
+  color: #fff;
+  font-weight: bold;
+  }
+  #ownerCancel{
+    border: none;
+    padding: 10px 20px;
+    margin: 10px 20px;
+    background-color: #ef5350;
+    color: #fff;
+    font-weight: bold;
+}
+#ownerSubmit:hover,#ownerCancel:hover{
+  cursor: pointer;
+  box-shadow: 0px 10px  10px 0px rgba(0,0,0,0.4);
+}
+#adminbtn{
+background: green;
+color:#fff;
+padding: 15px;
+margin-top: 100px;
+border-radius: 20px 0px 0px 20px;
+box-shadow: 0px 5px  10px 0px rgba(0,0,0,0.4);
+}
+#adminbtn:hover{
+  cursor: pointer;
+  box-shadow: 0px 10px  10px 0px rgba(0,0,0,0.4);
+}
+#logopic:hover{
+  opacity: 0.8;
+  cursor: pointer;
+
+}
+#logoutbtn{
+  border: none;
+  padding: 10px;
+  color: #fff;
+  font-weight: bold;
+  position: absolute;
+  right: 10%;
+  background:transparent;
+  border:1px solid #4fc3f7;
+}
+#logoutbtn:hover{
+  border:1px solid #fff;
+  cursor: pointer;
+}
+</style>
+<script type="text/javascript">
+  
+$(document).ready(function(){
+  $(function(){
+  $('#adminForm').on('submit',function(event){
+    event.preventDefault();
+    $('#loader').show();
+    // console.log("fn called");
+    // var info=document.getElementsByClassName('eventField');
+    var data =new FormData(this);
+     $.ajax({
+          type:'POST',
+          url:'/api/add/new/admin',
+          data:data,
+          cache:false,
+          contentType:false,
+          processData:false,
+          success:function(data){
+              if(data=='1'){
+                   document.getElementById('adminForm').reset();
+                   ldivHide();
+                   alert("Successful.Email and Password sent to Entered email.");
+                   $('#loader').hide(1000);
+
+                 }
+                 else if(data=='0'){
+                   alert("Error. Please try again.");
+                   $('#loader').hide(1000);
+                 }
+                  else if(data=='already'){
+                   alert("Admin Email id alreay exist.");
+                   $('#loader').hide(1000);
+                 }
+            }
+        });
+   });
+ });
+
+});
+
+  function showMe(){
+       $.getJSON('/api/query/owner',function(data){
+        // console.log("data"+data);
+        if(data==0){
+          generateNodata();
+        }
+        showQueryToOwner(data);
+       });
+  }
+
+function myfun(){
+console.log("called.");
+ $('#leftdiv').animate({width:'+=300px',opacity:'1.0'},1000);
+ $('#adminbtn').css('display','none');
+}
+
+function ldivHide(){
+  console.log("called");
+ $('#leftdiv').animate({width:'0px',opacity:'0.0'},1000,function(){
+  $('#adminbtn').css('display','block');
+ });
+document.getElementById('adminForm').reset;
+}
+</script>
+<body onload="showMe()">
+<div style="width: 100%;background-color: #4fc3f7">
+  <img id="logopic" src="/image/logo.png" onclick="location.href='/'">
+  <button id="logoutbtn" onclick="location.href='/logout'">Logout</button>
+</div>
+
+<!-- <header> -->
+<!-- <div  id="createpostdiv" onclick="showNewDiv()" >
+<p id="pdiv" style="text-align: center;width: 100%;padding: 20px;"><strong>Click to add Adminstration</strong></p>
+</div> -->
+<!-- <div  id="id001">
+  <form style="padding: 30px;" id="adminForm">
+    <label><b>Name:</b></label>
+    <input style="width: 100%;padding: 5px;" class="eventField" name="admin_name" type="text" required></input><br><br>
+    <label><b>Email:</b></label>
+        <input style="width: 100%;padding: 5px;" class="eventField" name="admin_email" type="email" required></input><br><br>
+        <label><b>Area:</b></label>
+        <input style="width: 100%;padding: 5px;" class="eventField" name="admin_area" type="text" required></input><br>
+        <div style="width: 100%;">
+        <button id="postbtn" type="submit">Submit</button>
+        <button onclick="hideNewDiv()" id="cancelBtn" type="reset">Cancel</button>
+    </div>
+    </form>
+  <div style="clear: both;"></div>
+</div> -->
+<div style="clear: both;"></div>
+<div style="position:fixed;top: 50;right: 0;">
+  <p id="adminbtn" onclick="myfun()">Add Admin</p>
+  <div id="leftdiv">
+    <form  id="adminForm" style="padding: 30px;">
+    <label><b>Name:</b></label>
+    <input style="width: 100%;padding: 5px;"  name="admin_name" type="text" required></input><br><br>
+    <label><b>Email:</b></label>
+        <input style="width: 100%;padding: 5px;"  name="admin_email" type="email" required></input><br><br>
+        <label><b>Area:</b></label>
+        <input style="width: 100%;padding: 5px;" name="admin_area" type="text" required></input><br>
+        <button id="ownerSubmit" type="submit">Submit</button>
+        <button id="ownerCancel" onclick="ldivHide()" type="reset">Cancel</button>
+    </form>
+    <div id="loader"></div>
+  </div>
+</div>
+<p class="recentText">Recent Message</p>
+
+<div id="dynamicParent" style="width:100%;">
+</div>
+</body>
+</html>

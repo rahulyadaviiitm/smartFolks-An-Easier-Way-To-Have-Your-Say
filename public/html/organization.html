@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="\css\folks.css">
+<script type="text/javascript" src="\script\organization.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+<body onload="showActivity()" onscroll="makevisibleUp()" onresize="myresizefn()">
+<header>
+<div id="maindiv">
+<div id="logodiv">
+<img  id="menupic" src="\image\menu.png">
+<a href="/"><img  id="imglogo" src="\image\logo.png"></a>
+</div>
+<div id="menudiv">
+<ul>
+  <li><a href="/">Home</a></li>
+  <li><a href="https://www.facebook.com/smartFolks.info" target="_blank">Follow</a></li>
+  <li><a href="/logout">Logout</a></li>
+  <li><a href="/#contact">Contact</a></li>
+</ul>	
+</div>
+</div>	
+</header>
+<a class="smooth_scroll" href="#maindiv" id="up"><img src="/image/up.png" style="position: fixed;right: 10px;bottom: 0;"></a>
+<script type="text/javascript">
+	function showActivity(){
+      $.getJSON('/api/send/events/owner',function(data){
+	   showEventsToOwner(data);
+  });
+}
+</script>
+<script type="text/javascript">
+	$(document).ready(function(){
+  $(function(){
+  $('#eventForm').on('submit',function(event){
+    event.preventDefault(); 
+    var info=document.getElementsByClassName('eventField');
+    if(info[0].value!='' && info[1].value!=''){
+       var data =new FormData(this);
+         $('#loader').show();
+         if($('input[name="event_img"]')[0].files){
+         data.append('event_img',$('input[name="event_img"]')[0].files);
+         }
+     $.ajax({
+          type:'POST',
+          url:'/api/addevent',
+          data:data,
+          cache:false,
+          contentType:false,
+          processData:false,
+          success:function(data){
+              if(data=='1'){
+                   document.getElementById('eventForm').reset();
+                   hideNewDiv();
+                   alert("Successful! Thanks for your time.");
+                   showActivity();
+                   $('#loader').hide(1000);
+                 }
+                 else if(data=='0'){
+                   alert("Error. Please try again.");
+                   $('#loader').hide(1000);
+                 }
+                 else if(data=='large'){
+                  alert('Image size exceeded.');
+                  $('#loader').hide(1000);
+                 }
+            }
+        });
+      }
+      else
+      alert("Please fill required fields.");
+   });
+ });
+
+$(function(){
+  $('.smooth_scroll').click(function() {
+    if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
+      var target = $(this.hash);
+      target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+      if (target.length) {
+        $('html,body').animate({
+          scrollTop: target.offset().top
+        }, 1000);
+        return false;
+       }
+     }
+  });
+});
+
+$('#menupic').click(function(){
+     $("#menudiv").animate({
+        height: 'toggle'
+    },'slow');
+});
+
+});
+</script>
+<div style="clear: both"></div>
+<span><b>Name:</b></span><span class="orgInfo"></span><br>
+<span><b>Your Location is:</b></span><span class="orgInfo"></span>
+<div style="clear: both;"></div>
+<div  id="createpostdiv" onclick="showNewDiv()" >
+	<p id="pdiv" style="text-align: center;width: 100%;padding: 20px;"><strong>Click to Create Activity..</strong></p>
+</div>
+<div  id="id001">
+	<form style="padding: 30px;" id="eventForm">
+		<label><b>Topic:</b></label><span style="color: red">*</span>
+		<textarea style="height: 30px;width: 100%;" class="eventField" name="event_topic"> </textarea><br><br>
+		<label><b>Description:</b></label><span style="color: red">*</span>
+        <textarea style="height: 100px;width: 100%;" class="eventField" name="event_des"></textarea>
+         <label><b>Select A relevant Image:</b></label>
+           <span style="opacity: 0.8">max size 5MB</span><br>
+        <input type="file" name="event_img" style="width: 20%;padding: 20px;border:none;" accept="image/*">
+	      <div style="width: 100%;">
+     	  <button id="postbtn" type="submit">Post</button>
+		    <button onclick="hideNewDiv()" id="cancelBtn" type="reset">Cancel</button>
+		</div>
+    </form>
+    <div id="loader"></div>
+	<div style="clear: both;"></div>
+</div>
+<p class="recentText">Your Recent Activity</p>
+<div id="dynamicParent" style="width:100%;border:1.5px solid #546e7a;margin-top: 0px;">
+</div>
+<div>
+</div>
+<footer>
+	<p id="ftrtxt">CopyRight @SmartFolks :All Rights Reserved</p>
+</footer>
+</body>
+</html>
